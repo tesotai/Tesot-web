@@ -32,9 +32,9 @@ export function Chatbot() {
     scrollToBottom()
   }, [messages, isTyping])
 
-  const handleSend = (e: React.FormEvent) => {
+  const handleSend = async (e: React.FormEvent) => {
     e.preventDefault()
-    if (!inputValue.trim()) return
+    if (!inputValue.trim() || isTyping) return
 
     const userMessage: Message = {
       id: Date.now().toString(),
@@ -43,30 +43,57 @@ export function Chatbot() {
     }
 
     setMessages((prev) => [...prev, userMessage])
+    const currentInput = inputValue
     setInputValue("")
     setIsTyping(true)
 
-    // Simulate AI response delay
-    setTimeout(() => {
-      const botResponses = [
-        "Interesante. Ese es un cuello de botella clásico. Con nuestra arquitectura basada en LLMs, podríamos automatizar la extracción de datos y reducir el tiempo de ese proceso en un 80%.",
-        "Entiendo. Hemos resuelto un problema similar usando agentes autónomos integrados con Zapier. Podemos conectar tus herramientas actuales sin migrar de plataforma.",
-        "Tiene sentido. El análisis predictivo nos permitiría no solo automatizar esa tarea, sino anticipar los picos de demanda. ¿Qué volumen de operaciones manejan al mes?",
-        "Ese es exactamente el tipo de ineficiencia que la IA resuelve mejor. Podemos desarrollar un flujo de trabajo inteligente que opere 24/7 y escale sin aumentar tus costos operativos."
-      ]
-      
-      const randomResponse = botResponses[Math.floor(Math.random() * botResponses.length)]
-      
+    try {
+      const response = await fetch(
+        "https://tesot.app.n8n.cloud/webhook-test/1362a32b-6bfe-4723-85eb-00c1fe50dd70",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ message: currentInput, chatHistory: messages }),
+        }
+      )
+
+      if (!response.ok) {
+        throw new Error(`HTTP ${response.status}`)
+      }
+
+      const data = await response.json()
+
+      // n8n puede devolver la respuesta en distintos campos según el nodo configurado
+      const botContent =
+        data?.output ||
+        data?.response ||
+        data?.text ||
+        data?.message ||
+        data?.answer ||
+        (typeof data === "string" ? data : null) ||
+        "Gracias por tu mensaje. Nuestro equipo revisará tu consulta y te contactará pronto."
+
       setMessages((prev) => [
         ...prev,
         {
           id: (Date.now() + 1).toString(),
           role: "bot",
-          content: randomResponse
-        }
+          content: botContent,
+        },
       ])
+    } catch {
+      setMessages((prev) => [
+        ...prev,
+        {
+          id: (Date.now() + 1).toString(),
+          role: "bot",
+          content:
+            "En este momento el agente no está disponible. Por favor, intenta de nuevo en unos momentos o contáctanos directamente.",
+        },
+      ])
+    } finally {
       setIsTyping(false)
-    }, 1500)
+    }
   }
 
   return (
