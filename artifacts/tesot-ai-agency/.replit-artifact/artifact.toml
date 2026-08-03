@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "TESOT AI Agency"
+description = "Landing page en español para TESOT, una agencia de automatización con inteligencia artificial. Presenta proyectos interactivos, servicios, métricas, chatbot de demostración y formulario de contacto para convertir visitantes en consultas."
+version = "1.0.0"
+id = "artifacts/tesot-ai-agency"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 18138
+
+[services.development]
+run = "pnpm --filter @workspace/tesot-ai-agency run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/tesot-ai-agency", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/tesot-ai-agency/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "18138"
+BASE_PATH = "/"
