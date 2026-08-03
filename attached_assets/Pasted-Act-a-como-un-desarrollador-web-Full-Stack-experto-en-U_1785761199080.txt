@@ -1,0 +1,43 @@
+Actúa como un desarrollador web Full-Stack experto en UI/UX con enfoque minimalista-tecnológico y en agencias de automatización con IA. Tu objetivo es diseñar y programar el código completo (HTML5, Tailwind CSS moderno y JavaScript limpio) para la página web principal de la agencia "TESOT".
+
+### 1. Identidad Visual y Estética ("Elegante, Tecnológica y Equilibrada")
+- **Paleta de Colores:** - Fondo principal: Negro espacial o gris muy oscuro (#0a0a0c) para dar sensación de profundidad y tecnología.
+  - Acentos: Azul c eléctricos suaves (#3b82f6) o violeta neón sutil (#8b5cf6) para los elementos interactivos y gradientes de luz.
+  - Texto: Blanco puro (#ffffff) para títulos y gris claro (#9ca3af) para párrafos secundarios.
+- **Tipografía:** Tipografías de palo seco modernas (ej. Inter o Plus Jakarta Sans) con pesos contrastados para los títulos y descripciones.
+- **Efectos Visuales Sutiles:** Degradados difuminados en el fondo (glow effects), bordes sutiles con brillo sutil (glow borders) en las tarjetas de servicios y transiciones fluidas al hacer scroll. Nada recargado; debe transmitir autoridad, modernidad y exclusividad.
+
+### 2. Estructura y Secciones de la Página Web
+
+#### A. Barra de Navegación (Navbar) Fija y Minimalista
+- **Logo:** "TESOT" con una tipografía limpia y un punto o destello tecnológico sutil al lado.
+- **Enlaces de navegación:** Inicio, Servicios, Casos de Éxito / Proyectos, Chatbot en Vivo y Contacto.
+- **CTA:** Un botón llamativo con efecto hover para agendar una consultoría o probar el chatbot.
+
+#### B. Sección Hero (Impacto Inicial)
+- **Titular Principal (H1):** "Automatizamos el futuro de tu negocio con Inteligencia Artificial." (con animación de aparición progresiva).
+- **Subtítulo:** Una propuesta de valor clara sobre cómo los flujos de trabajo inteligentes ahorran tiempo y escalan operaciones en TESOT.
+- **Botones de Llamada a la Acción (CTA):** - Principal: "Explora nuestros proyectos" (lleva a la sección interactiva).
+  - Secundario: "Habla con nuestro agente IA" (desplaza al chatbot integrado).
+
+#### C. Sección de Proyectos e Interactividad en Vivo (El núcleo de TESOT)
+- **Enfoque:** Demostración directa del trabajo de la agencia para que los clientes experimenten la IA por sí mismos.
+- **Componentes:**
+  - **Filtros de proyectos:** Pestañas para filtrar por "Automatización de Ventas", "Atención al Cliente", "Procesamiento de Datos" y "Agentes de Voz".
+  - **Tarjetas de Proyectos Interactivos:** Cada tarjeta muestra un caso de éxito real con métricas claras (ej: "Reducción del 70% en tiempos de respuesta").
+  - **Chatbot Web Embebido (Demostración Interactiva):** Un widget de chat flotante o integrado en la interfaz en la sección de proyectos donde los usuarios pueden escribirle directamente a un prototipo de IA creado por TESOT para ver cómo responde en tiempo real sobre los servicios de la agencia.
+
+#### D. Servicios de Automatización (Grid Elegante)
+- **Diseño:** Tarjetas minimalistas con iconos minimalistas en 3D o vectores limpios.
+- **Contenido:**
+  1. *Integración de LLMs a medida:* Conexión de IA avanzada en sistemas internos.
+  2. *Automatización de Procesos (RPA + IA):* Reducción de tareas repetitivas.
+  3. *Atención al Cliente 24/7:* Chatbots inteligentes con memoria y contexto.
+  4. *Análisis Predictivo:* Dashboards inteligentes para la toma de decisiones.
+
+#### E. Sección de Autoridad / Por qué TESOT
+- Datos clave presentados con contadores animados (ej: "Horas ahorradas", "Procesos automatizados", "Satisfacción de clientes").
+- Logotipos sutiles de tecnologías utilizadas (OpenAI, Anthropic, Python, Make, Zapier, etc.).
+
+#### F. Sección de Contacto / Conversión
+- Un formulario limpio y optimizado con campos esenciales (Nombre, Empresa
