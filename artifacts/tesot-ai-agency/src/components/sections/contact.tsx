@@ -10,7 +10,6 @@ import { CheckCircle2, ArrowRight } from "lucide-react"
 
 const formSchema = z.object({
   name: z.string().min(2, { message: "El nombre debe tener al menos 2 caracteres." }),
-  company: z.string().min(2, { message: "La empresa es requerida." }),
   email: z.string().email({ message: "Por favor, ingresa un correo válido." }),
   message: z.string().min(10, { message: "El mensaje debe tener al menos 10 caracteres." }),
 })
@@ -36,7 +35,6 @@ export function Contact() {
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
             name: data.name,
-            company: data.company,
             email: data.email,
             message: data.message,
             source: "TESOT website",
@@ -67,10 +65,10 @@ export function Contact() {
           
           <div className="md:w-1/2">
             <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
-              Inicia la transformación.
+              Pregúntanos lo que quieras, al instante.
             </h2>
             <p className="text-lg text-muted-foreground mb-8">
-              Cuéntanos sobre los cuellos de botella operativos de tu empresa. Analizaremos tu caso y te propondremos una arquitectura de automatización en 48 horas.
+              Escribe cualquier duda sobre nuestros servicios. Nuestro sistema inteligente te responderá de inmediato. Si necesitas algo más complejo o personalizado, un especialista se pondrá en contacto contigo muy pronto.
             </p>
             
             <div className="space-y-6">
@@ -79,8 +77,8 @@ export function Contact() {
                   <span className="text-primary font-bold">1</span>
                 </div>
                 <div>
-                  <h4 className="text-white font-medium mb-1">Auditoría Operativa</h4>
-                  <p className="text-sm text-muted-foreground">Mapeamos tus procesos actuales e identificamos ineficiencias.</p>
+                  <h4 className="text-white font-medium mb-1">Respuestas al instante</h4>
+                  <p className="text-sm text-muted-foreground">Tu consulta es atendida de forma inmediata por nuestra inteligencia integrada.</p>
                 </div>
               </div>
               <div className="flex gap-4 items-start">
@@ -88,8 +86,8 @@ export function Contact() {
                   <span className="text-primary font-bold">2</span>
                 </div>
                 <div>
-                  <h4 className="text-white font-medium mb-1">Diseño de Arquitectura</h4>
-                  <p className="text-sm text-muted-foreground">Proponemos un sistema a medida usando los LLMs más avanzados.</p>
+                  <h4 className="text-white font-medium mb-1">Atención humana garantizada</h4>
+                  <p className="text-sm text-muted-foreground">Si tu caso necesita un toque especial, un experto de nuestro equipo te escribirá.</p>
                 </div>
               </div>
               <div className="flex gap-4 items-start">
@@ -97,8 +95,8 @@ export function Contact() {
                   <span className="text-primary font-bold">3</span>
                 </div>
                 <div>
-                  <h4 className="text-white font-medium mb-1">Despliegue y Escalado</h4>
-                  <p className="text-sm text-muted-foreground">Implementamos la solución con monitoreo continuo y soporte 24/7.</p>
+                  <h4 className="text-white font-medium mb-1">Ahorro de tiempo real</h4>
+                  <p className="text-sm text-muted-foreground">Olvídate de esperar días; obtén claridad sobre tu proyecto en minutos.</p>
                 </div>
               </div>
             </div>
@@ -120,8 +118,8 @@ export function Contact() {
                       <CheckCircle2 className="w-8 h-8" />
                     </div>
                     <h3 className="text-2xl font-bold text-white mb-2">Solicitud Recibida</h3>
-                    <p className="text-muted-foreground mb-8">
-                      Nuestro equipo de arquitectura revisará tu información y se pondrá en contacto contigo a la brevedad.
+                      <p className="text-muted-foreground mb-8">
+                       Hemos recibido tu pregunta. Nuestro asistente y nuestro equipo la revisarán para ayudarte cuanto antes.
                     </p>
                     <Button variant="outline" onClick={() => setIsSubmitted(false)}>
                       Enviar otro mensaje
@@ -137,41 +135,31 @@ export function Contact() {
                     className="space-y-4"
                   >
                     <div className="space-y-2">
-                      <label className="text-sm font-medium text-white">Nombre Completo</label>
+                        <label className="text-sm font-medium text-white">Nombre Completo</label>
                       <Input 
                         {...register("name")} 
-                        placeholder="Ej. Carlos Mendoza" 
+                        placeholder="Ej. María Gómez" 
                         className={errors.name ? "border-destructive focus-visible:ring-destructive" : ""}
                       />
                       {errors.name && <p className="text-xs text-destructive">{errors.name.message}</p>}
                     </div>
 
                     <div className="space-y-2">
-                      <label className="text-sm font-medium text-white">Empresa</label>
-                      <Input 
-                        {...register("company")} 
-                        placeholder="Ej. TechCorp Logistics" 
-                        className={errors.company ? "border-destructive focus-visible:ring-destructive" : ""}
-                      />
-                      {errors.company && <p className="text-xs text-destructive">{errors.company.message}</p>}
-                    </div>
-
-                    <div className="space-y-2">
-                      <label className="text-sm font-medium text-white">Correo Corporativo</label>
+                      <label className="text-sm font-medium text-white">Correo Electrónico</label>
                       <Input 
                         {...register("email")} 
                         type="email" 
-                        placeholder="carlos@empresa.com" 
+                        placeholder="tu@correo.com" 
                         className={errors.email ? "border-destructive focus-visible:ring-destructive" : ""}
                       />
                       {errors.email && <p className="text-xs text-destructive">{errors.email.message}</p>}
                     </div>
 
                     <div className="space-y-2">
-                      <label className="text-sm font-medium text-white">¿Qué proceso necesitas automatizar?</label>
+                      <label className="text-sm font-medium text-white">¿Qué te gustaría saber o mejorar en tu negocio?</label>
                       <Textarea 
                         {...register("message")} 
-                        placeholder="Describe brevemente el flujo de trabajo actual..." 
+                        placeholder="Ej. ¿Cómo pueden ayudar a que mi equipo pierda menos tiempo respondiendo correos?..." 
                         className={errors.message ? "border-destructive focus-visible:ring-destructive" : ""}
                       />
                       {errors.message && <p className="text-xs text-destructive">{errors.message.message}</p>}
@@ -189,7 +177,7 @@ export function Contact() {
                         </span>
                       ) : (
                         <span className="flex items-center gap-2">
-                          Solicitar Análisis <ArrowRight className="w-4 h-4" />
+                          Enviar pregunta o duda →
                         </span>
                       )}
                     </Button>
