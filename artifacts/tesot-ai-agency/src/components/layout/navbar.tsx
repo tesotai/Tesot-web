@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
+import { SiFacebook, SiInstagram } from "react-icons/si"
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false)
@@ -58,6 +59,28 @@ export function Navbar() {
               {link.name}
             </a>
           ))}
+          <div className="flex items-center gap-3 border-l border-border/60 pl-6">
+            <a
+              href="https://www.instagram.com/tesot.ia/"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Instagram de TESOT IA"
+              className="group flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-primary"
+            >
+              <SiInstagram className="h-4 w-4 text-white transition-colors group-hover:text-primary" aria-hidden="true" />
+              <span>@tesot.ia</span>
+            </a>
+            <a
+              href="https://www.facebook.com/TesotIA"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Facebook de TESOT IA"
+              className="group flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-primary"
+            >
+              <SiFacebook className="h-4 w-4 text-white transition-colors group-hover:text-primary" aria-hidden="true" />
+              <span>Tesot IA</span>
+            </a>
+          </div>
           <Button 
             variant="glow" 
             onClick={() => document.querySelector("#contacto")?.scrollIntoView({ behavior: "smooth" })}
@@ -66,7 +89,26 @@ export function Navbar() {
           </Button>
         </div>
 
-        {/* Mobile menu could be added here */}
+        <div className="flex items-center gap-3 md:hidden">
+          <a
+            href="https://www.instagram.com/tesot.ia/"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Instagram de TESOT IA"
+            className="group rounded-full p-2 text-white transition-colors hover:bg-white/[0.06] hover:text-primary"
+          >
+            <SiInstagram className="h-4 w-4 transition-colors group-hover:text-primary" aria-hidden="true" />
+          </a>
+          <a
+            href="https://www.facebook.com/TesotIA"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Facebook de TESOT IA"
+            className="group rounded-full p-2 text-white transition-colors hover:bg-white/[0.06] hover:text-primary"
+          >
+            <SiFacebook className="h-4 w-4 transition-colors group-hover:text-primary" aria-hidden="true" />
+          </a>
+        </div>
       </div>
     </nav>
   )
