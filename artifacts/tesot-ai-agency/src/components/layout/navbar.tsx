@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
+import { Mail } from "lucide-react"
 import { SiFacebook, SiInstagram } from "react-icons/si"
 
 export function Navbar() {
@@ -61,6 +62,14 @@ export function Navbar() {
           ))}
           <div className="flex items-center gap-3 border-l border-border/60 pl-6">
             <a
+              href="mailto:contact.tesot@gmail.com"
+              aria-label="Enviar correo a contact.tesot@gmail.com"
+              className="group flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-primary"
+            >
+              <Mail className="h-4 w-4 text-white transition-colors group-hover:text-primary" aria-hidden="true" />
+              <span>contact.tesot@gmail.com</span>
+            </a>
+            <a
               href="https://www.instagram.com/tesot.ia/"
               target="_blank"
               rel="noreferrer"
@@ -90,6 +99,13 @@ export function Navbar() {
         </div>
 
         <div className="flex items-center gap-3 md:hidden">
+          <a
+            href="mailto:contact.tesot@gmail.com"
+            aria-label="Enviar correo a contact.tesot@gmail.com"
+            className="group rounded-full p-2 text-white transition-colors hover:bg-white/[0.06] hover:text-primary"
+          >
+            <Mail className="h-4 w-4 transition-colors group-hover:text-primary" aria-hidden="true" />
+          </a>
           <a
             href="https://www.instagram.com/tesot.ia/"
             target="_blank"
