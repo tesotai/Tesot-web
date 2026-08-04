@@ -80,7 +80,7 @@ export function Navbar() {
               <span>@tesot.ia</span>
             </a>
             <a
-              href="https://www.facebook.com/TesotIA"
+              href="https://www.facebook.com/profile.php?id=61592807240710"
               target="_blank"
               rel="noreferrer"
               aria-label="Facebook de TESOT IA"
@@ -116,7 +116,7 @@ export function Navbar() {
             <SiInstagram className="h-4 w-4 transition-colors group-hover:text-primary" aria-hidden="true" />
           </a>
           <a
-            href="https://www.facebook.com/TesotIA"
+            href="https://www.facebook.com/profile.php?id=61592807240710"
             target="_blank"
             rel="noreferrer"
             aria-label="Facebook de TESOT IA"
