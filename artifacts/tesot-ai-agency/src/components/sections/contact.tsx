@@ -6,7 +6,8 @@ import * as z from "zod"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
-import { CheckCircle2, ArrowRight } from "lucide-react"
+import { CheckCircle2, ArrowRight, Mail } from "lucide-react"
+import { SiFacebook, SiInstagram } from "react-icons/si"
 
 const formSchema = z.object({
   name: z.string().min(2, { message: "El nombre debe tener al menos 2 caracteres." }),
@@ -192,6 +193,38 @@ export function Contact() {
             </div>
           </div>
 
+        </div>
+
+        <div className="max-w-4xl mx-auto mt-10 rounded-2xl border border-border/70 bg-card/40 p-5 sm:p-6 backdrop-blur-sm">
+          <div className="flex flex-col items-center justify-center gap-4 sm:flex-row sm:gap-0">
+            <a
+              href="mailto:contact.tesot@gmail.com"
+              className="group flex w-full items-center justify-center gap-3 rounded-xl px-4 py-3 text-sm text-muted-foreground transition-colors hover:bg-white/[0.04] hover:text-primary sm:w-1/3 sm:justify-start sm:border-r sm:border-border/60"
+            >
+              <Mail className="h-5 w-5 shrink-0 text-white transition-colors group-hover:text-primary" aria-hidden="true" />
+              <span className="truncate">contact.tesot@gmail.com</span>
+            </a>
+            <a
+              href="https://www.instagram.com/tesot.ia/"
+              target="_blank"
+              rel="noreferrer"
+              className="group flex w-full items-center justify-center gap-3 rounded-xl px-4 py-3 text-sm text-muted-foreground transition-colors hover:bg-white/[0.04] hover:text-primary sm:w-1/3 sm:justify-center sm:border-r sm:border-border/60"
+              aria-label="Instagram de TESOT IA"
+            >
+              <SiInstagram className="h-5 w-5 shrink-0 text-white transition-colors group-hover:text-primary" aria-hidden="true" />
+              <span>@tesot.ia</span>
+            </a>
+            <a
+              href="https://www.facebook.com/TesotIA"
+              target="_blank"
+              rel="noreferrer"
+              className="group flex w-full items-center justify-center gap-3 rounded-xl px-4 py-3 text-sm text-muted-foreground transition-colors hover:bg-white/[0.04] hover:text-primary sm:w-1/3 sm:justify-end"
+              aria-label="Facebook de TESOT IA"
+            >
+              <SiFacebook className="h-5 w-5 shrink-0 text-white transition-colors group-hover:text-primary" aria-hidden="true" />
+              <span>Tesot IA</span>
+            </a>
+          </div>
         </div>
       </div>
     </section>
