@@ -218,7 +218,7 @@ export function Contact() {
               href="https://www.facebook.com/TesotIA"
               target="_blank"
               rel="noreferrer"
-              className="group flex w-full items-center justify-center gap-3 rounded-xl px-4 py-3 text-sm text-muted-foreground transition-colors hover:bg-white/[0.04] hover:text-primary sm:w-1/3 sm:justify-end"
+              className="group flex w-full items-center justify-center gap-3 rounded-xl px-4 py-3 text-sm text-muted-foreground transition-colors hover:bg-white/[0.04] hover:text-primary sm:w-1/3 sm:justify-center"
               aria-label="Facebook de TESOT IA"
             >
               <SiFacebook className="h-5 w-5 shrink-0 text-white transition-colors group-hover:text-primary" aria-hidden="true" />
