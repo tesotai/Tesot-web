@@ -18,6 +18,7 @@ const formSchema = z.object({
 export function Contact() {
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitError, setSubmitError] = useState<string | null>(null)
 
   const { register, handleSubmit, formState: { errors } } = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -25,11 +26,36 @@ export function Contact() {
 
   const onSubmit = async (data: z.infer<typeof formSchema>) => {
     setIsSubmitting(true)
-    // Simulate network request
-    await new Promise(resolve => setTimeout(resolve, 1500))
-    console.log("Form data:", data)
-    setIsSubmitting(false)
-    setIsSubmitted(true)
+    setSubmitError(null)
+
+    try {
+      const response = await fetch(
+        "https://tesot.app.n8n.cloud/webhook/tesot-contacto",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            name: data.name,
+            company: data.company,
+            email: data.email,
+            message: data.message,
+            source: "TESOT website",
+          }),
+        },
+      )
+
+      if (!response.ok) {
+        throw new Error(`HTTP ${response.status}`)
+      }
+
+      setIsSubmitted(true)
+    } catch {
+      setSubmitError(
+        "No hemos podido enviar tu solicitud. Inténtalo de nuevo en unos momentos.",
+      )
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
@@ -167,6 +193,11 @@ export function Contact() {
                         </span>
                       )}
                     </Button>
+                    {submitError && (
+                      <p role="alert" className="text-sm text-destructive text-center">
+                        {submitError}
+                      </p>
+                    )}
                   </motion.form>
                 )}
               </AnimatePresence>
