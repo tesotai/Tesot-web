@@ -13,6 +13,7 @@ import { Button } from "@/components/ui/button"
 import {
   Mail,
   CalendarCheck,
+  Globe2,
   MessageSquare,
   Sparkles,
   ArrowRight,
@@ -95,6 +96,27 @@ const services: Service[] = [
       "Un visitante consulta disponibilidad desde la web.",
       "Una tienda ayuda a elegir el producto adecuado.",
       "Un profesional recibe solicitudes de presupuesto.",
+    ],
+  },
+  {
+    id: "web",
+    icon: <Globe2 className="w-6 h-6" />,
+    accent: "text-secondary",
+    title: "Creamos la web que tu negocio necesita",
+    summary:
+      "Una web clara, profesional y preparada para ayudarte a conseguir clientes y trabajar mejor.",
+    detail:
+      "Diseñamos una web a medida para explicar lo que haces, mostrar tus servicios y facilitar que las personas contacten contigo. Puede incluir un chatbot que resuelva dudas, un formulario que envíe las consultas, reservas, avisos y otras automatizaciones conectadas con tu forma de trabajar.",
+    benefits: [
+      "Una presencia profesional adaptada a tu negocio",
+      "Diseño cómodo de usar desde móvil, tablet y ordenador",
+      "Chatbot, formulario y contacto directo en un mismo espacio",
+      "Posibilidad de conectar reservas, correos y otras tareas automáticas",
+    ],
+    examples: [
+      "Una clínica presenta sus tratamientos y permite solicitar una cita.",
+      "Un restaurante muestra su propuesta y recibe reservas o pedidos.",
+      "Un profesional explica sus servicios y capta nuevas consultas.",
     ],
   },
   {
