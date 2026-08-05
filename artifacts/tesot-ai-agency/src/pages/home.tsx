@@ -8,14 +8,22 @@ import { Services } from "@/components/sections/services"
 import { Chatbot } from "@/components/sections/chatbot"
 import { Contact } from "@/components/sections/contact"
 import { ArrowRight, FolderOpen, Layers, Zap } from "lucide-react"
+import agencyLogo from "@assets/Untitled_Project_-_illustrationimage-removebg-preview_1785971012346.png"
 
 export function Footer() {
   return (
     <footer className="py-12 bg-background border-t border-border">
       <div className="container mx-auto px-6 flex flex-col md:flex-row items-center justify-between">
         <div className="flex items-center gap-2 mb-4 md:mb-0">
-          <span className="text-xl font-bold text-white tracking-tighter">TESOT</span>
-          <span className="w-1.5 h-1.5 rounded-full bg-primary glow-primary inline-block"></span>
+          <img
+            src={agencyLogo}
+            alt="Logo de TESOT AI Agency"
+            className="h-9 w-9 object-contain"
+          />
+          <span className="text-xl font-bold text-white tracking-tighter">
+            TESOT
+            <span className="ml-1 inline-block h-1.5 w-1.5 rounded-full bg-primary align-middle glow-primary" />
+          </span>
         </div>
         <p className="text-sm text-muted-foreground text-center md:text-left">
           © {new Date().getFullYear()} TESOT AI Agency. Arquitectura de automatización avanzada.

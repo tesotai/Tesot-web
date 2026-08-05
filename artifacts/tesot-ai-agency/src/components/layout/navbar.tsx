@@ -4,6 +4,7 @@ import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import { Mail, Menu, X } from "lucide-react"
 import { SiFacebook, SiInstagram } from "react-icons/si"
+import agencyLogo from "@assets/Untitled_Project_-_illustrationimage-removebg-preview_1785971012346.png"
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false)
@@ -51,9 +52,20 @@ export function Navbar() {
     >
       <div className="container mx-auto px-6 h-20 flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="text-2xl font-bold tracking-tighter text-white flex items-center gap-2">
-          TESOT
-          <span className="w-2 h-2 rounded-full bg-primary glow-primary inline-block" />
+        <Link
+          href="/"
+          aria-label="TESOT AI Agency - Inicio"
+          className="flex items-center gap-2.5"
+        >
+          <img
+            src={agencyLogo}
+            alt="Logo de TESOT AI Agency"
+            className="h-10 w-10 object-contain"
+          />
+          <span className="text-2xl font-bold tracking-tighter text-white">
+            TESOT
+            <span className="ml-1.5 inline-block h-2 w-2 rounded-full bg-primary align-middle glow-primary" />
+          </span>
         </Link>
 
         {/* Desktop nav */}
