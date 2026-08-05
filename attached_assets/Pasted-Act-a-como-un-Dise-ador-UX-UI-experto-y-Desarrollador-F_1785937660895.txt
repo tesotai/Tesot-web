@@ -1,0 +1,49 @@
+Actúa como un Diseñador UX/UI experto y Desarrollador Frontend senior especializado en agencias de Inteligencia Artificial de alto nivel. 
+
+Quiero diseñar e implementar dos nuevas páginas secundarias para mi agencia de IA llamada "TESOT" (manteniendo exactamente la misma identidad visual de la web principal: fondo negro profundo #0a0a0a, tipografía sans-serif limpia, detalles sutiles en degradado violeta/azul cian neon, estilo moderno, minimalista y profesional de agencia tech).
+
+Las dos páginas que necesito crear son: "Servicios" y "Proyectos". Además, en la página de inicio o en un menú de navegación limpio y accesible, debe haber botones o tarjetas visuales atractivas que redirijan fácilmente a ambas páginas.
+
+A continuación te detallo el contenido y los requisitos específicos para cada sección:
+
+---
+
+### 1. DISEÑO DE NAVEGACIÓN Y ENLACES (Menú / Home)
+- Crea un componente de barra de navegación superior (o sección de acceso rápido) con estilo flotante/glassmorphism sutil que incluya enlaces claros a: "Inicio", "Servicios", "Proyectos" y un botón de llamada a la acción (CTA) como "Contactar".
+- En la parte visual principal, añade dos tarjetas de acceso rápido (o botones destacados) que inviten al usuario a explorar "Nuestros Servicios" y "Casos de Éxito / Proyectos", con iconos minimalistas y efectos hover suaves.
+
+---
+
+### 2. PÁGINA DE SERVICIOS (Con diseño de Acordeón / Desplegables)
+Diseña esta página con un encabezado llamativo que indique cómo la IA transforma los procesos operativos. Debajo, lista los servicios que ofrezco utilizando un componente interactivo de tipo **Acordeón (Accordion / Dropdown)**: el usuario ve el título y un resumen corto, y al hacer clic, se despliega una tarjeta con información detallada, beneficios y casos de uso. 
+
+Los servicios que debes estructurar son exactamente estos:
+
+1. **Gestión Automatizada de Correo con IA (Triage & Drafts)**
+   - Resumen: Respuestas automáticas inteligentes, clasificación y gestión de borradores en Gmail.
+   - Detalle desplegable: La IA analiza los correos entrantes, redacta y envía respuestas automáticas si tiene la certeza, o los deja guardados de forma segura en borradores de Gmail para revisión humana si requiere supervisión especial.
+
+2. **Sistema Automatizado de Reservas Inteligentes**
+   - Resumen: Gestión de citas omnicanal con validación de conflictos y sugerencias automáticas.
+   - Detalle desplegable: Sistema integrado con Gmail que procesa solicitudes, guarda los datos de la reserva en Google Sheets y envía correos de confirmación. Incluye lógica avanzada: si la persona intenta duplicar una reserva existente, la IA le avisa por correo; si el horario no está disponible, le recomienda de forma inteligente otros huecos libres próximos.
+
+3. **Chatbot Web Propio a Medida**
+   - Resumen: Asistentes conversacionales integrados en tu sitio web con contexto de negocio.
+   - Detalle desplegable: Desarrollo de chatbots personalizados entrenados con la información de la empresa para atención al cliente 24/7, capaces de resolver dudas complejas, capturar leads y conectar con bases de datos en tiempo real.
+
+4. **Desarrollo de Agentes e IAs Propias para Empresas**
+   - Resumen: Soluciones de Inteligencia Artificial autónomas y adaptadas al core de tu negocio.
+   - Detalle desplegable: Creación de inteligencias artificiales a medida orientadas a automatizar flujos complejos de trabajo, análisis predictivo, procesamiento de documentos específicos y toma de decisiones autónoma dentro de la infraestructura del cliente.
+
+---
+
+### 3. PÁGINA DE PROYECTOS / CASOS DE ÉXITO (Estructura preparada)
+- Esta página debe mantener el mismo estándar visual de calidad pero estar **preparada como una sección dinámica o vacía a propósito** (con un diseño elegante de "Próximamente" o "Nuevos casos de éxito en desarrollo") ya que la iré completando próximamente.
+- Diseña una cuadrícula (grid) limpia con tarjetas sutiles y placeholders profesionales (por ejemplo, con títulos tentativos como "Proyecto Confidencial de IA - Sector Logística", "Automatización Financiera B2B") y un mensaje institucional que indique: *"Estamos documentando nuestros casos de éxito más impactantes. Muy pronto disponibles."*, acompañado de una llamada a la acción para contactar directamente si quieren ver demos privadas.
+
+---
+
+### REQUISITOS TÉCNICOS Y ESTÉTICOS:
+- **Estética:** Dark mode absoluto, uso de bordes muy finos (border-color: rgba(255,255,255,0.1)), sombras difuminadas y toques de color violeta/azul neón en los elementos interactivos activos o botones.
+- **Interactividad:** Los desplegables de servicios deben abrirse y cerrarse con animaciones fluidas (CSS transitions / Framer Motion o equivalente).
+- **Responsive:** 100% adaptable a dispositivos móviles y tablets.

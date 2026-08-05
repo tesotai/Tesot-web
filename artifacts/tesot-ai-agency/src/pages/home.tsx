@@ -1,4 +1,6 @@
 import React from "react"
+import { Link } from "wouter"
+import { motion } from "framer-motion"
 import { Navbar } from "@/components/layout/navbar"
 import { Hero } from "@/components/sections/hero"
 import { Metrics } from "@/components/sections/metrics"
@@ -6,6 +8,8 @@ import { Services } from "@/components/sections/services"
 import { Projects } from "@/components/sections/projects"
 import { Chatbot } from "@/components/sections/chatbot"
 import { Contact } from "@/components/sections/contact"
+import { Button } from "@/components/ui/button"
+import { ArrowRight, Layers, FolderOpen } from "lucide-react"
 
 export function Footer() {
   return (
@@ -26,12 +30,111 @@ export function Footer() {
   )
 }
 
+const cards = [
+  {
+    href: "/servicios",
+    accent: "primary",
+    Icon: Layers,
+    eyebrow: "Nuestros Servicios",
+    title: "IA que automatiza tu negocio",
+    description:
+      "Desde gestión de correo con IA hasta agentes autónomos a medida. Conoce los sistemas que construimos.",
+    cta: "Ver servicios",
+  },
+  {
+    href: "/proyectos",
+    accent: "secondary",
+    Icon: FolderOpen,
+    eyebrow: "Casos de Éxito",
+    title: "Proyectos que hablan por sí solos",
+    description:
+      "Explora los proyectos que estamos documentando. Pide una demo privada y ve el impacto real.",
+    cta: "Ver proyectos",
+  },
+]
+
+function QuickAccess() {
+  return (
+    <section className="py-16 md:py-20 border-b border-border/50">
+      <div className="container mx-auto px-6">
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="text-center mb-10"
+        >
+          <p className="text-sm font-semibold tracking-[0.18em] uppercase text-muted-foreground">
+            Explora TESOT
+          </p>
+        </motion.div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 max-w-4xl mx-auto">
+          {cards.map((card, i) => {
+            const isPrimary = card.accent === "primary"
+            return (
+              <motion.div
+                key={card.href}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+              >
+                <Link href={card.href} className="group block h-full">
+                  <div
+                    className={`relative h-full rounded-2xl border border-white/[0.08] bg-card/40 p-8 overflow-hidden transition-all duration-300 hover:border-${card.accent}/30 hover:bg-card/70 hover:shadow-[0_0_40px_-15px_hsl(var(--${card.accent})/0.25)]`}
+                  >
+                    {/* Background glow */}
+                    <div
+                      className={`absolute -top-12 -right-12 w-40 h-40 rounded-full blur-[60px] pointer-events-none transition-opacity duration-500 opacity-0 group-hover:opacity-100 ${isPrimary ? "bg-primary/20" : "bg-secondary/20"}`}
+                    />
+
+                    <div className="relative z-10 flex flex-col h-full gap-5">
+                      <div
+                        className={`w-12 h-12 rounded-xl border border-white/10 bg-background flex items-center justify-center transition-colors duration-300 group-hover:border-${card.accent}/40 ${isPrimary ? "text-primary" : "text-secondary"}`}
+                      >
+                        <card.Icon className="w-5 h-5" />
+                      </div>
+
+                      <div className="flex-1">
+                        <p
+                          className={`text-xs font-semibold tracking-widest uppercase mb-2 ${isPrimary ? "text-primary/70" : "text-secondary/70"}`}
+                        >
+                          {card.eyebrow}
+                        </p>
+                        <h3 className="text-xl font-bold text-white mb-3 leading-snug group-hover:text-white/90 transition-colors">
+                          {card.title}
+                        </h3>
+                        <p className="text-sm text-muted-foreground leading-relaxed">
+                          {card.description}
+                        </p>
+                      </div>
+
+                      <div
+                        className={`flex items-center gap-2 text-sm font-medium transition-colors ${isPrimary ? "text-primary/70 group-hover:text-primary" : "text-secondary/70 group-hover:text-secondary"}`}
+                      >
+                        {card.cta}
+                        <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" />
+                      </div>
+                    </div>
+                  </div>
+                </Link>
+              </motion.div>
+            )
+          })}
+        </div>
+      </div>
+    </section>
+  )
+}
+
 export default function Home() {
   return (
     <div className="min-h-screen bg-background text-foreground flex flex-col selection:bg-primary/30 selection:text-white font-sans">
       <Navbar />
       <main className="flex-1">
         <Hero />
+        <QuickAccess />
         <Metrics />
         <Services />
         <Projects />

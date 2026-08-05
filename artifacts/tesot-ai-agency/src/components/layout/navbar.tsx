@@ -1,65 +1,88 @@
 import React, { useState, useEffect } from "react"
+import { Link, useLocation } from "wouter"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
-import { Mail } from "lucide-react"
+import { Mail, Menu, X } from "lucide-react"
 import { SiFacebook, SiInstagram } from "react-icons/si"
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false)
+  const [menuOpen, setMenuOpen] = useState(false)
+  const [location] = useLocation()
+  const isHome = location === "/"
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 20)
-    }
+    const handleScroll = () => setScrolled(window.scrollY > 20)
     window.addEventListener("scroll", handleScroll)
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
-  const navLinks = [
-    { name: "Inicio", href: "#inicio" },
-    { name: "Servicios", href: "#servicios" },
-    { name: "Proyectos", href: "#proyectos" },
-    { name: "Chatbot en vivo", href: "#chatbot" },
-  ]
+  // Close mobile menu on route change
+  useEffect(() => {
+    setMenuOpen(false)
+  }, [location])
 
-  const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-    e.preventDefault()
-    const target = document.querySelector(href)
-    if (target) {
-      target.scrollIntoView({ behavior: "smooth" })
+  const scrollToSection = (id: string) => {
+    if (isHome) {
+      const target = document.querySelector(id)
+      if (target) target.scrollIntoView({ behavior: "smooth" })
+    } else {
+      // Navigate home then scroll after paint
+      window.location.href = `/${id}`
     }
   }
+
+  const navLinks = [
+    { name: "Inicio", type: "route", href: "/" },
+    { name: "Servicios", type: "route", href: "/servicios" },
+    { name: "Proyectos", type: "route", href: "/proyectos" },
+    { name: "Chatbot en vivo", type: "scroll", href: "#chatbot" },
+  ]
 
   return (
     <nav
       className={cn(
         "fixed top-0 inset-x-0 z-50 transition-all duration-300 border-b",
-        scrolled
-          ? "bg-background/80 backdrop-blur-md border-border"
+        scrolled || menuOpen
+          ? "bg-background/90 backdrop-blur-md border-border"
           : "bg-transparent border-transparent"
       )}
     >
       <div className="container mx-auto px-6 h-20 flex items-center justify-between">
-        <a 
-          href="#inicio" 
-          onClick={(e) => scrollToSection(e, "#inicio")}
-          className="text-2xl font-bold tracking-tighter text-white flex items-center gap-2"
-        >
+        {/* Logo */}
+        <Link href="/" className="text-2xl font-bold tracking-tighter text-white flex items-center gap-2">
           TESOT
-          <span className="w-2 h-2 rounded-full bg-primary glow-primary inline-block"></span>
-        </a>
+          <span className="w-2 h-2 rounded-full bg-primary glow-primary inline-block" />
+        </Link>
 
+        {/* Desktop nav */}
         <div className="hidden md:flex items-center gap-8">
-          {navLinks.map((link) => (
-            <a
-              key={link.name}
-              href={link.href}
-              onClick={(e) => scrollToSection(e, link.href)}
-              className="text-sm font-medium text-muted-foreground hover:text-white transition-colors"
-            >
-              {link.name}
-            </a>
-          ))}
+          {navLinks.map((link) =>
+            link.type === "route" ? (
+              <Link
+                key={link.name}
+                href={link.href}
+                className={cn(
+                  "text-sm font-medium transition-colors",
+                  location === link.href
+                    ? "text-white"
+                    : "text-muted-foreground hover:text-white"
+                )}
+              >
+                {link.name}
+              </Link>
+            ) : (
+              <button
+                key={link.name}
+                onClick={() => scrollToSection(link.href)}
+                className="text-sm font-medium text-muted-foreground hover:text-white transition-colors"
+              >
+                {link.name}
+              </button>
+            )
+          )}
+
+          {/* Social / contact */}
           <div className="flex items-center gap-3 border-l border-border/60 pl-6">
             <a
               href="mailto:contact.tesot@gmail.com"
@@ -90,14 +113,16 @@ export function Navbar() {
               <span>Tesot IA</span>
             </a>
           </div>
-          <Button 
-            variant="glow" 
-            onClick={() => document.querySelector("#contacto")?.scrollIntoView({ behavior: "smooth" })}
+
+          <Button
+            variant="glow"
+            onClick={() => scrollToSection("#contacto")}
           >
             Contacto
           </Button>
         </div>
 
+        {/* Mobile: social icons + hamburger */}
         <div className="flex items-center gap-3 md:hidden">
           <a
             href="mailto:contact.tesot@gmail.com"
@@ -124,8 +149,62 @@ export function Navbar() {
           >
             <SiFacebook className="h-4 w-4 transition-colors group-hover:text-primary" aria-hidden="true" />
           </a>
+          <button
+            onClick={() => setMenuOpen((v) => !v)}
+            aria-label="Abrir menú"
+            className="rounded-full p-2 text-white transition-colors hover:bg-white/[0.06]"
+          >
+            {menuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          </button>
         </div>
       </div>
+
+      {/* Mobile dropdown menu */}
+      {menuOpen && (
+        <div className="md:hidden border-t border-border bg-background/95 backdrop-blur-md">
+          <div className="container mx-auto px-6 py-4 flex flex-col gap-1">
+            {navLinks.map((link) =>
+              link.type === "route" ? (
+                <Link
+                  key={link.name}
+                  href={link.href}
+                  className={cn(
+                    "px-4 py-3 rounded-lg text-sm font-medium transition-colors",
+                    location === link.href
+                      ? "text-white bg-white/[0.06]"
+                      : "text-muted-foreground hover:text-white hover:bg-white/[0.04]"
+                  )}
+                >
+                  {link.name}
+                </Link>
+              ) : (
+                <button
+                  key={link.name}
+                  onClick={() => {
+                    setMenuOpen(false)
+                    scrollToSection(link.href)
+                  }}
+                  className="px-4 py-3 rounded-lg text-sm font-medium text-muted-foreground hover:text-white hover:bg-white/[0.04] transition-colors text-left"
+                >
+                  {link.name}
+                </button>
+              )
+            )}
+            <div className="pt-2 mt-1 border-t border-border/50">
+              <Button
+                variant="glow"
+                className="w-full"
+                onClick={() => {
+                  setMenuOpen(false)
+                  scrollToSection("#contacto")
+                }}
+              >
+                Contacto
+              </Button>
+            </div>
+          </div>
+        </div>
+      )}
     </nav>
   )
 }
