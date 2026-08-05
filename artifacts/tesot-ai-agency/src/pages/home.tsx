@@ -5,11 +5,9 @@ import { Navbar } from "@/components/layout/navbar"
 import { Hero } from "@/components/sections/hero"
 import { Metrics } from "@/components/sections/metrics"
 import { Services } from "@/components/sections/services"
-import { Projects } from "@/components/sections/projects"
 import { Chatbot } from "@/components/sections/chatbot"
 import { Contact } from "@/components/sections/contact"
-import { Button } from "@/components/ui/button"
-import { ArrowRight, Layers, FolderOpen } from "lucide-react"
+import { ArrowRight, CalendarCheck, MessageCircle, Zap } from "lucide-react"
 
 export function Footer() {
   return (
@@ -32,24 +30,34 @@ export function Footer() {
 
 const cards = [
   {
-    href: "/servicios",
-    accent: "primary",
-    Icon: Layers,
-    eyebrow: "Nuestros Servicios",
-    title: "IA que automatiza tu negocio",
+    href: "#servicios",
+    accent: "primary" as const,
+    Icon: MessageCircle,
+    eyebrow: "Clientes mejor atendidos",
+    title: "Responde aunque estés ocupado",
     description:
-      "Desde gestión de correo con IA hasta agentes autónomos a medida. Conoce los sistemas que construimos.",
-    cta: "Ver servicios",
+      "Dudas frecuentes, mensajes y solicitudes resueltos automáticamente, con una persona siempre disponible cuando hace falta.",
+    cta: "Ver soluciones",
   },
   {
-    href: "/proyectos",
-    accent: "secondary",
-    Icon: FolderOpen,
-    eyebrow: "Casos de Éxito",
-    title: "Proyectos que hablan por sí solos",
+    href: "#servicios",
+    accent: "secondary" as const,
+    Icon: CalendarCheck,
+    eyebrow: "Más tiempo para lo importante",
+    title: "Organiza tu día sin perseguir tareas",
     description:
-      "Explora los proyectos que estamos documentando. Pide una demo privada y ve el impacto real.",
-    cta: "Ver proyectos",
+      "Citas, reservas, pedidos y tareas repetitivas que se coordinan solos para que tu equipo pueda centrarse en el negocio.",
+    cta: "Descubrir cómo",
+  },
+  {
+    href: "#servicios",
+    accent: "primary" as const,
+    Icon: Zap,
+    eyebrow: "Un negocio más ágil",
+    title: "Haz más con el mismo equipo",
+    description:
+      "Conectamos tus herramientas y automatizamos el trabajo invisible que consume horas cada semana.",
+    cta: "Empezar ahora",
   },
 ]
 
@@ -65,24 +73,28 @@ function QuickAccess() {
           className="text-center mb-10"
         >
           <p className="text-sm font-semibold tracking-[0.18em] uppercase text-muted-foreground">
-            Explora TESOT
+            Soluciones que entiendes desde el primer vistazo
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 max-w-4xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 max-w-6xl mx-auto">
           {cards.map((card, i) => {
             const isPrimary = card.accent === "primary"
             return (
               <motion.div
-                key={card.href}
+                key={`${card.href}-${card.title}`}
                 initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
               >
-                <Link href={card.href} className="group block h-full">
+                <a href={card.href} className="group block h-full">
                   <div
-                    className={`relative h-full rounded-2xl border border-white/[0.08] bg-card/40 p-8 overflow-hidden transition-all duration-300 hover:border-${card.accent}/30 hover:bg-card/70 hover:shadow-[0_0_40px_-15px_hsl(var(--${card.accent})/0.25)]`}
+                    className={`relative h-full rounded-2xl border border-white/[0.08] bg-card/40 p-8 overflow-hidden transition-all duration-300 hover:bg-card/70 ${
+                      isPrimary
+                        ? "hover:border-primary/30 hover:shadow-[0_0_40px_-15px_hsl(var(--primary)/0.25)]"
+                        : "hover:border-secondary/30 hover:shadow-[0_0_40px_-15px_hsl(var(--secondary)/0.25)]"
+                    }`}
                   >
                     {/* Background glow */}
                     <div
@@ -91,7 +103,11 @@ function QuickAccess() {
 
                     <div className="relative z-10 flex flex-col h-full gap-5">
                       <div
-                        className={`w-12 h-12 rounded-xl border border-white/10 bg-background flex items-center justify-center transition-colors duration-300 group-hover:border-${card.accent}/40 ${isPrimary ? "text-primary" : "text-secondary"}`}
+                        className={`w-12 h-12 rounded-xl border border-white/10 bg-background flex items-center justify-center transition-colors duration-300 ${
+                          isPrimary
+                            ? "text-primary group-hover:border-primary/40"
+                            : "text-secondary group-hover:border-secondary/40"
+                        }`}
                       >
                         <card.Icon className="w-5 h-5" />
                       </div>
@@ -118,7 +134,7 @@ function QuickAccess() {
                       </div>
                     </div>
                   </div>
-                </Link>
+                </a>
               </motion.div>
             )
           })}
@@ -137,7 +153,6 @@ export default function Home() {
         <QuickAccess />
         <Metrics />
         <Services />
-        <Projects />
         <Chatbot />
         <Contact />
       </main>

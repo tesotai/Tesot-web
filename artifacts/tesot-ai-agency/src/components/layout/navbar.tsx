@@ -35,7 +35,6 @@ export function Navbar() {
   const navLinks = [
     { name: "Inicio", type: "route", href: "/" },
     { name: "Servicios", type: "route", href: "/servicios" },
-    { name: "Proyectos", type: "route", href: "/proyectos" },
     { name: "Chatbot en vivo", type: "scroll", href: "#chatbot" },
   ]
 

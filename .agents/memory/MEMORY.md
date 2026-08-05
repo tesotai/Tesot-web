@@ -1,0 +1,1 @@
+- [Comunicación de TESOT](communication.md) — usar lenguaje claro y resultados cotidianos, válido para negocios de cualquier sector.

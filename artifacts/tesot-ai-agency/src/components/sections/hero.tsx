@@ -53,9 +53,9 @@ export function Hero() {
           <Button 
             size="lg" 
             className="w-full sm:w-auto gap-2 font-medium text-base h-12"
-            onClick={() => document.querySelector("#proyectos")?.scrollIntoView({ behavior: "smooth" })}
+            onClick={() => document.querySelector("#servicios")?.scrollIntoView({ behavior: "smooth" })}
           >
-            Explora nuestros proyectos
+            Descubre cómo podemos ayudarte
             <ArrowRight className="w-4 h-4" />
           </Button>
           <Button 
@@ -70,15 +70,15 @@ export function Hero() {
         </motion.div>
       </div>
 
-      {/* Decorative tech stack text */}
+      {/* Decorative outcomes strip */}
       <div className="absolute bottom-10 left-0 right-0 flex justify-center gap-8 opacity-30 text-sm font-mono grayscale mix-blend-screen overflow-hidden">
         <motion.div 
           animate={{ x: [0, -100] }} 
           transition={{ repeat: Infinity, duration: 20, ease: "linear" }}
           className="flex gap-12 whitespace-nowrap"
         >
-          {["OpenAI", "Anthropic", "Python", "Make", "Zapier", "LangChain", "Pinecone", "AWS", "OpenAI", "Anthropic", "Python", "Make", "Zapier"].map((tech, i) => (
-            <span key={i}>{tech}</span>
+          {["Más tiempo", "Clientes atendidos", "Menos tareas", "Negocios más ágiles", "Más tiempo", "Clientes atendidos", "Menos tareas", "Negocios más ágiles"].map((outcome, i) => (
+            <span key={i}>{outcome}</span>
           ))}
         </motion.div>
       </div>

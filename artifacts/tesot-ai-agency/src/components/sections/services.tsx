@@ -1,84 +1,198 @@
 import React from "react"
 import { motion } from "framer-motion"
-import { Card, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
-import { Cpu, Repeat, Headphones, BarChart3 } from "lucide-react"
+import {
+  CalendarCheck,
+  FileText,
+  MessageCircle,
+  Sparkles,
+  ArrowUpRight,
+} from "lucide-react"
 
-const services = [
+interface Capability {
+  number: string
+  title: string
+  description: string
+  example: string
+  sectors: string[]
+  icon: React.ReactNode
+  accent: "primary" | "secondary"
+}
+
+const capabilities: Capability[] = [
   {
-    title: "Integración de LLMs a medida",
-    description: "Conectamos modelos lingüísticos avanzados con la base de conocimiento de tu empresa para crear sistemas expertos que entienden tu contexto.",
-    icon: <Cpu className="w-6 h-6 text-primary" />,
-    color: "from-primary/20 to-transparent",
+    number: "01",
+    title: "Responde a tus clientes al instante",
+    description:
+      "Un asistente que contesta las preguntas habituales de tu negocio, incluso cuando estás atendiendo, descansando o fuera del horario.",
+    example:
+      "Un restaurante puede responder el menú y los horarios; una clínica, sus servicios y disponibilidad.",
+    sectors: ["Restaurantes", "Tiendas", "Clínicas"],
+    icon: <MessageCircle className="w-6 h-6" />,
+    accent: "primary",
   },
   {
-    title: "Automatización de Procesos (RPA + IA)",
-    description: "Eliminamos el trabajo manual. Orquestamos flujos complejos entre tus herramientas existentes usando IA para tomar decisiones en tiempo real.",
-    icon: <Repeat className="w-6 h-6 text-secondary" />,
-    color: "from-secondary/20 to-transparent",
+    number: "02",
+    title: "Organiza citas, reservas y pedidos",
+    description:
+      "Tus clientes pueden pedir una cita, reservar una mesa o solicitar un servicio sin llamadas interminables ni cruces de horarios.",
+    example:
+      "La solución comprueba la agenda, propone alternativas y envía la confirmación automáticamente.",
+    sectors: ["Citas", "Reservas", "Pedidos"],
+    icon: <CalendarCheck className="w-6 h-6" />,
+    accent: "secondary",
   },
   {
-    title: "Atención al Cliente 24/7",
-    description: "Agentes inteligentes que resuelven el 80% de las consultas de forma autónoma, escalando a humanos solo cuando es estrictamente necesario.",
-    icon: <Headphones className="w-6 h-6 text-primary" />,
-    color: "from-primary/20 to-transparent",
+    number: "03",
+    title: "Quita de en medio las tareas repetitivas",
+    description:
+      "Convertimos el trabajo que se repite cada día en un proceso automático: leer mensajes, ordenar datos, preparar documentos o avisar a un cliente.",
+    example:
+      "Menos copiar y pegar. Más tiempo para cocinar, vender, atender o dirigir tu negocio.",
+    sectors: ["Correos", "Documentos", "Avisos"],
+    icon: <FileText className="w-6 h-6" />,
+    accent: "primary",
   },
   {
-    title: "Análisis Predictivo",
-    description: "Convertimos tus datos históricos en ventajas competitivas, anticipando tendencias y detectando anomalías antes de que impacten tu negocio.",
-    icon: <BarChart3 className="w-6 h-6 text-secondary" />,
-    color: "from-secondary/20 to-transparent",
+    number: "04",
+    title: "Creamos una solución para tu forma de trabajar",
+    description:
+      "Si tu negocio tiene una necesidad concreta, diseñamos una herramienta inteligente que se adapta a tus procesos y a tus programas actuales.",
+    example:
+      "Desde un asistente para tu equipo hasta un sistema que conecta tus ventas, agenda y atención.",
+    sectors: ["A medida", "Tu equipo", "Tus herramientas"],
+    icon: <Sparkles className="w-6 h-6" />,
+    accent: "secondary",
   },
 ]
 
 const container = {
   hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1
-    }
-  }
+  show: { opacity: 1, transition: { staggerChildren: 0.1 } },
 }
 
 const item = {
   hidden: { opacity: 0, y: 20 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" as const } }
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, ease: "easeOut" as const },
+  },
 }
 
 export function Services() {
   return (
-    <section id="servicios" className="py-32 relative">
-      <div className="container mx-auto px-6">
-        <div className="mb-16 text-center max-w-2xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Capacidades Core</h2>
-          <p className="text-muted-foreground text-lg">
-            Sistemas diseñados con precisión matemática. No entregamos demos, construimos infraestructura.
+    <section id="servicios" className="py-28 md:py-32 relative overflow-hidden">
+      <div className="absolute top-1/3 -left-32 w-72 h-72 rounded-full bg-primary/10 blur-[100px] pointer-events-none" />
+      <div className="absolute bottom-0 -right-24 w-72 h-72 rounded-full bg-secondary/10 blur-[100px] pointer-events-none" />
+
+      <div className="container mx-auto px-6 relative z-10">
+        <div className="mb-14 max-w-3xl">
+          <div className="flex items-center gap-3 mb-5">
+            <span className="w-8 h-px bg-primary" />
+            <span className="text-xs font-semibold tracking-[0.2em] uppercase text-primary">
+              Lo que hacemos
+            </span>
+          </div>
+          <h2 className="text-3xl md:text-5xl font-bold text-white leading-tight mb-5">
+            Tecnología que se entiende.
+            <br />
+            <span className="text-gradient">Resultados que se notan.</span>
+          </h2>
+          <p className="text-muted-foreground text-lg max-w-2xl leading-relaxed">
+            No importa si tienes un restaurante, una tienda, una clínica o
+            trabajas por tu cuenta. Encontramos las tareas que te quitan tiempo
+            y hacemos que funcionen solas.
           </p>
         </div>
 
-        <motion.div 
+        <motion.div
           variants={container}
           initial="hidden"
           whileInView="show"
-          viewport={{ once: true, margin: "-100px" }}
-          className="grid grid-cols-1 md:grid-cols-2 gap-6"
+          viewport={{ once: true, margin: "-80px" }}
+          className="grid grid-cols-1 md:grid-cols-2 gap-5"
         >
-          {services.map((service, index) => (
-            <motion.div key={index} variants={item}>
-              <Card className="h-full bg-card hover:bg-card/80 transition-colors border-white/5 relative overflow-hidden group">
-                <div className={`absolute top-0 left-0 w-full h-full bg-gradient-to-br ${service.color} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
-                <CardHeader className="relative z-10">
-                  <div className="w-12 h-12 rounded-lg bg-background flex items-center justify-center border border-white/10 mb-4 group-hover:border-primary/50 transition-colors">
-                    {service.icon}
+          {capabilities.map((capability) => {
+            const isPrimary = capability.accent === "primary"
+            return (
+              <motion.article
+                key={capability.number}
+                variants={item}
+                className={`group relative overflow-hidden rounded-2xl border bg-card/40 p-7 md:p-8 transition-all duration-300 ${
+                  isPrimary
+                    ? "border-primary/10 hover:border-primary/40 hover:shadow-[0_0_45px_-18px_hsl(var(--primary)/0.45)]"
+                    : "border-secondary/10 hover:border-secondary/40 hover:shadow-[0_0_45px_-18px_hsl(var(--secondary)/0.45)]"
+                }`}
+              >
+                <div
+                  className={`absolute -right-16 -top-16 w-44 h-44 rounded-full blur-[65px] opacity-0 group-hover:opacity-100 transition-opacity duration-500 ${
+                    isPrimary ? "bg-primary/20" : "bg-secondary/20"
+                  }`}
+                />
+
+                <div className="relative z-10">
+                  <div className="flex items-start justify-between mb-8">
+                    <div
+                      className={`w-12 h-12 rounded-xl border bg-background flex items-center justify-center ${
+                        isPrimary
+                          ? "border-primary/20 text-primary"
+                          : "border-secondary/20 text-secondary"
+                      }`}
+                    >
+                      {capability.icon}
+                    </div>
+                    <span className="text-sm font-mono text-muted-foreground/50">
+                      {capability.number}
+                    </span>
                   </div>
-                  <CardTitle className="text-xl mb-2 text-white">{service.title}</CardTitle>
-                  <CardDescription className="text-base text-muted-foreground">
-                    {service.description}
-                  </CardDescription>
-                </CardHeader>
-              </Card>
-            </motion.div>
-          ))}
+
+                  <h3 className="text-xl md:text-2xl font-bold text-white mb-3 group-hover:text-white/90">
+                    {capability.title}
+                  </h3>
+                  <p className="text-muted-foreground leading-relaxed mb-5">
+                    {capability.description}
+                  </p>
+
+                  <div
+                    className={`rounded-xl border p-4 mb-6 ${
+                      isPrimary
+                        ? "border-primary/10 bg-primary/[0.04]"
+                        : "border-secondary/10 bg-secondary/[0.04]"
+                    }`}
+                  >
+                    <p className="text-sm text-white/80 leading-relaxed">
+                      <span
+                        className={`font-semibold ${
+                          isPrimary ? "text-primary" : "text-secondary"
+                        }`}
+                      >
+                        Por ejemplo:{" "}
+                      </span>
+                      {capability.example}
+                    </p>
+                  </div>
+
+                  <div className="flex items-center justify-between gap-4">
+                    <div className="flex flex-wrap gap-2">
+                      {capability.sectors.map((sector) => (
+                        <span
+                          key={sector}
+                          className="rounded-full border border-white/10 px-3 py-1 text-xs text-muted-foreground"
+                        >
+                          {sector}
+                        </span>
+                      ))}
+                    </div>
+                    <ArrowUpRight
+                      className={`w-5 h-5 shrink-0 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1 ${
+                        isPrimary ? "text-primary" : "text-secondary"
+                      }`}
+                    />
+                  </div>
+                </div>
+              </motion.article>
+            )
+          })}
         </motion.div>
       </div>
     </section>

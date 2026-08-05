@@ -14,9 +14,12 @@ import {
   Mail,
   CalendarCheck,
   MessageSquare,
-  Brain,
+  Sparkles,
   ArrowRight,
   CheckCircle2,
+  Store,
+  Stethoscope,
+  BriefcaseBusiness,
 } from "lucide-react"
 
 interface Service {
@@ -27,99 +30,103 @@ interface Service {
   summary: string
   detail: string
   benefits: string[]
-  useCases: string[]
+  examples: string[]
 }
 
 const services: Service[] = [
   {
-    id: "correo",
+    id: "mensajes",
     icon: <Mail className="w-6 h-6" />,
     accent: "text-primary",
-    title: "Gestión Automatizada de Correo con IA (Triage & Drafts)",
+    title: "Respuestas automáticas para tus mensajes y correos",
     summary:
-      "Respuestas automáticas inteligentes, clasificación y gestión de borradores en Gmail.",
+      "Contesta preguntas habituales, ordena solicitudes y prepara respuestas sin que tengas que estar pendiente todo el día.",
     detail:
-      "La IA analiza los correos entrantes, redacta y envía respuestas automáticas si tiene la certeza, o los deja guardados de forma segura en borradores de Gmail para revisión humana si requiere supervisión especial.",
+      "La solución lee los mensajes que llegan, entiende qué necesita cada persona y responde cuando la respuesta está clara. Si hace falta una decisión tuya, prepara el borrador y te lo deja listo para revisar. Así no se pierde ningún cliente y tú mantienes el control de las conversaciones importantes.",
     benefits: [
-      "Reducción de hasta un 80% en el tiempo de gestión de bandeja de entrada",
-      "Respuestas coherentes con tu tono y políticas de empresa",
-      "Borradores listos para revisar en segundos, no horas",
-      "Clasificación inteligente por prioridad, tipo y urgencia",
+      "Respuestas rápidas, también fuera del horario de apertura",
+      "Mensajes ordenados por urgencia y tipo de solicitud",
+      "Borradores preparados para que solo tengas que revisarlos",
+      "Un tono de comunicación coherente con tu negocio",
     ],
-    useCases: [
-      "Startups que reciben decenas de consultas diarias",
-      "Equipos de ventas con alto volumen de correos entrantes",
-      "Negocios con soporte al cliente vía email",
+    examples: [
+      "Un restaurante responde horarios, carta y reservas.",
+      "Una tienda informa sobre productos, envíos y devoluciones.",
+      "Una clínica aclara servicios y prepara solicitudes de cita.",
     ],
   },
   {
-    id: "reservas",
+    id: "agenda",
     icon: <CalendarCheck className="w-6 h-6" />,
     accent: "text-secondary",
-    title: "Sistema Automatizado de Reservas Inteligentes",
+    title: "Citas, reservas y pedidos que se organizan solos",
     summary:
-      "Gestión de citas omnicanal con validación de conflictos y sugerencias automáticas.",
+      "Gestiona horarios, evita reservas duplicadas y confirma cada solicitud automáticamente.",
     detail:
-      "Sistema integrado con Gmail que procesa solicitudes, guarda los datos de la reserva en Google Sheets y envía correos de confirmación. Incluye lógica avanzada: si la persona intenta duplicar una reserva existente, la IA le avisa por correo; si el horario no está disponible, le recomienda de forma inteligente otros huecos libres próximos.",
+      "Cuando alguien quiere reservar, la solución comprueba los huecos disponibles, guarda los datos y envía la confirmación. Si el horario está ocupado, propone alternativas cercanas. Si detecta que la persona ya tiene una reserva, lo avisa antes de crear otra.",
     benefits: [
-      "Eliminación total de dobles reservas y conflictos de agenda",
-      "Confirmaciones automáticas por correo en tiempo real",
-      "Registro centralizado en Google Sheets sin intervención humana",
-      "Sugerencias proactivas de horarios alternativos",
+      "Menos llamadas, mensajes y trabajo de coordinación",
+      "Adiós a las reservas duplicadas y a los cruces de horarios",
+      "Confirmaciones automáticas para clientes y equipo",
+      "Alternativas inteligentes cuando el horario solicitado está ocupado",
     ],
-    useCases: [
-      "Clínicas y consultorios médicos",
-      "Estudios de consultoría y despachos",
-      "Negocios de servicios con citas frecuentes",
+    examples: [
+      "Mesas y pedidos para restaurantes.",
+      "Citas para clínicas, peluquerías y profesionales.",
+      "Visitas, clases o servicios con horarios disponibles.",
     ],
   },
   {
-    id: "chatbot",
+    id: "asistente",
     icon: <MessageSquare className="w-6 h-6" />,
     accent: "text-primary",
-    title: "Chatbot Web Propio a Medida",
+    title: "Un asistente para tu web que atiende 24/7",
     summary:
-      "Asistentes conversacionales integrados en tu sitio web con contexto de negocio.",
+      "Una conversación sencilla para que tus visitantes resuelvan dudas y contacten contigo al momento.",
     detail:
-      "Desarrollo de chatbots personalizados entrenados con la información de la empresa para atención al cliente 24/7, capaces de resolver dudas complejas, capturar leads y conectar con bases de datos en tiempo real.",
+      "Creamos un asistente con la información real de tu negocio: servicios, precios, horarios, condiciones y preguntas frecuentes. Puede resolver dudas, recoger los datos de una persona interesada y avisarte cuando es el momento de intervenir.",
     benefits: [
-      "Disponibilidad 24/7 sin coste de personal adicional",
-      "Entrenado con el contenido, tono y datos reales de tu empresa",
-      "Captura de leads cualificados de forma automatizada",
-      "Integración con CRM, bases de datos y herramientas existentes",
+      "Atención continua sin contratar otro turno",
+      "Respuestas basadas en la información real de tu negocio",
+      "Más oportunidades de convertir visitas en clientes",
+      "Derivación a una persona cuando el caso lo necesita",
     ],
-    useCases: [
-      "E-commerce con soporte al cliente frecuente",
-      "SaaS que necesita onboarding automatizado",
-      "Agencias y servicios profesionales B2B",
+    examples: [
+      "Un visitante consulta disponibilidad desde la web.",
+      "Una tienda ayuda a elegir el producto adecuado.",
+      "Un profesional recibe solicitudes de presupuesto.",
     ],
   },
   {
-    id: "agentes",
-    icon: <Brain className="w-6 h-6" />,
+    id: "automatizacion",
+    icon: <Sparkles className="w-6 h-6" />,
     accent: "text-secondary",
-    title: "Desarrollo de Agentes e IAs Propias para Empresas",
+    title: "Automatización a medida para tu forma de trabajar",
     summary:
-      "Soluciones de Inteligencia Artificial autónomas y adaptadas al core de tu negocio.",
+      "Conectamos tus herramientas y hacemos que las tareas repetitivas ocurran automáticamente.",
     detail:
-      "Creación de inteligencias artificiales a medida orientadas a automatizar flujos complejos de trabajo, análisis predictivo, procesamiento de documentos específicos y toma de decisiones autónoma dentro de la infraestructura del cliente.",
+      "Cada negocio tiene una manera distinta de trabajar. Analizamos tu día a día y construimos una solución que puede ordenar información, preparar documentos, enviar avisos, actualizar registros o ayudar a tu equipo a tomar decisiones más rápido.",
     benefits: [
-      "Automatización de procesos de alto valor que antes requerían expertos",
-      "Análisis predictivo basado en los datos históricos de tu empresa",
-      "Procesamiento masivo de documentos: facturas, contratos, informes",
-      "IA que aprende y mejora con cada interacción dentro de tu entorno",
+      "Menos trabajo manual y menos errores por despistes",
+      "Tus herramientas actuales trabajan conectadas",
+      "Procesos pensados para tu negocio, no plantillas genéricas",
+      "Más capacidad para crecer sin aumentar la carga del equipo",
     ],
-    useCases: [
-      "Empresas con flujos complejos de trabajo repetitivo",
-      "Sectores legal, financiero y logístico",
-      "Compañías que buscan ventaja competitiva a largo plazo",
+    examples: [
+      "Una tienda organiza pedidos y avisa de cada cambio.",
+      "Una empresa prepara presupuestos y documentos.",
+      "Un equipo recibe cada mañana un resumen de lo importante.",
     ],
   },
 ]
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.55, ease: "easeOut" as const } },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.55, ease: "easeOut" as const },
+  },
 }
 
 const stagger = {
@@ -132,14 +139,13 @@ export default function Servicios() {
     <div className="min-h-screen bg-background text-foreground flex flex-col selection:bg-primary/30 selection:text-white font-sans">
       <Navbar />
       <main className="flex-1 pt-20">
-        {/* ── Hero header ── */}
         <section className="relative py-24 md:py-32 overflow-hidden">
           <div className="absolute inset-0 pointer-events-none">
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-primary/10 rounded-full blur-[120px]" />
             <div className="absolute bottom-0 right-0 w-64 h-64 bg-secondary/10 rounded-full blur-[80px]" />
           </div>
 
-          <div className="container mx-auto px-6 relative z-10 text-center max-w-3xl">
+          <div className="container mx-auto px-6 relative z-10 text-center max-w-4xl">
             <motion.div
               variants={stagger}
               initial="hidden"
@@ -150,35 +156,48 @@ export default function Servicios() {
                 variants={fadeUp}
                 className="inline-block text-xs font-semibold tracking-[0.2em] uppercase text-primary border border-primary/30 rounded-full px-4 py-1.5 bg-primary/5"
               >
-                Nuestros Servicios
+                Soluciones para tu negocio
               </motion.span>
 
               <motion.h1
                 variants={fadeUp}
                 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight"
               >
-                La IA que{" "}
-                <span className="text-gradient bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-                  transforma
-                </span>{" "}
-                tus operaciones
+                Menos tareas.
+                <br />
+                <span className="text-gradient">Más tiempo para tus clientes.</span>
               </motion.h1>
 
               <motion.p
                 variants={fadeUp}
-                className="text-lg text-muted-foreground max-w-xl"
+                className="text-lg text-muted-foreground max-w-2xl"
               >
-                No vendemos software genérico. Construimos sistemas de IA
-                adaptados al ADN de tu negocio para automatizar lo que más
-                tiempo y dinero te cuesta.
+                Ayudamos a restaurantes, tiendas, clínicas, profesionales y
+                equipos de cualquier sector a trabajar mejor con soluciones
+                sencillas, útiles y hechas a su medida.
               </motion.p>
             </motion.div>
           </div>
         </section>
 
-        {/* ── Accordion de servicios ── */}
         <section className="pb-24 md:pb-32">
-          <div className="container mx-auto px-6 max-w-3xl">
+          <div className="container mx-auto px-6 max-w-4xl">
+            <div className="grid grid-cols-3 gap-3 md:gap-5 mb-12 max-w-2xl mx-auto">
+              {[
+                { icon: <Store className="w-4 h-4" />, label: "Comercios" },
+                { icon: <Stethoscope className="w-4 h-4" />, label: "Servicios" },
+                { icon: <BriefcaseBusiness className="w-4 h-4" />, label: "Empresas" },
+              ].map((sector) => (
+                <div
+                  key={sector.label}
+                  className="flex flex-col sm:flex-row items-center justify-center gap-2 rounded-xl border border-white/[0.08] bg-card/30 px-3 py-3 text-center text-xs md:text-sm text-muted-foreground"
+                >
+                  <span className="text-primary">{sector.icon}</span>
+                  {sector.label}
+                </div>
+              ))}
+            </div>
+
             <motion.div
               variants={stagger}
               initial="hidden"
@@ -201,7 +220,7 @@ export default function Servicios() {
                           </div>
                           <div>
                             <p className="text-xs text-muted-foreground mb-1 font-normal">
-                              Servicio {String(index + 1).padStart(2, "0")}
+                              Solución {String(index + 1).padStart(2, "0")}
                             </p>
                             <p className="text-base md:text-lg font-semibold text-white leading-snug">
                               {service.title}
@@ -215,56 +234,51 @@ export default function Servicios() {
 
                       <AccordionContent className="pt-0 pb-6">
                         <div className="border-t border-white/[0.06] pt-6 space-y-6">
-                          {/* Detail */}
                           <p className="text-muted-foreground text-sm leading-relaxed">
                             {service.detail}
                           </p>
 
                           <div className="grid md:grid-cols-2 gap-6">
-                            {/* Benefits */}
                             <div>
                               <h4 className="text-xs font-semibold tracking-widest uppercase text-primary mb-3">
-                                Beneficios clave
+                                Lo que consigues
                               </h4>
                               <ul className="space-y-2">
-                                {service.benefits.map((b) => (
+                                {service.benefits.map((benefit) => (
                                   <li
-                                    key={b}
+                                    key={benefit}
                                     className="flex items-start gap-2 text-sm text-muted-foreground"
                                   >
                                     <CheckCircle2 className="w-4 h-4 text-primary shrink-0 mt-0.5" />
-                                    {b}
+                                    {benefit}
                                   </li>
                                 ))}
                               </ul>
                             </div>
 
-                            {/* Use cases */}
                             <div>
                               <h4 className="text-xs font-semibold tracking-widest uppercase text-secondary mb-3">
-                                Ideal para
+                                Ejemplos reales
                               </h4>
                               <ul className="space-y-2">
-                                {service.useCases.map((u) => (
+                                {service.examples.map((example) => (
                                   <li
-                                    key={u}
+                                    key={example}
                                     className="flex items-start gap-2 text-sm text-muted-foreground"
                                   >
                                     <ArrowRight className="w-4 h-4 text-secondary shrink-0 mt-0.5" />
-                                    {u}
+                                    {example}
                                   </li>
                                 ))}
                               </ul>
                             </div>
                           </div>
 
-                          <div className="pt-2">
-                            <Link href="/#contacto">
-                              <Button variant="glow" size="sm">
-                                Solicitar este servicio →
-                              </Button>
-                            </Link>
-                          </div>
+                          <Link href="/#contacto">
+                            <Button variant="glow" size="sm">
+                              Quiero hablar de mi negocio →
+                            </Button>
+                          </Link>
                         </div>
                       </AccordionContent>
                     </AccordionItem>
@@ -273,7 +287,6 @@ export default function Servicios() {
               </Accordion>
             </motion.div>
 
-            {/* CTA final */}
             <motion.div
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -282,11 +295,11 @@ export default function Servicios() {
               className="mt-16 text-center"
             >
               <p className="text-muted-foreground mb-6 text-lg">
-                ¿Tienes un caso de uso diferente? Lo analizamos juntos.
+                Cuéntanos qué te quita tiempo y te diremos cómo simplificarlo.
               </p>
               <Link href="/#contacto">
                 <Button variant="glow" size="lg">
-                  Hablar con el equipo →
+                  Hablar con TESOT →
                 </Button>
               </Link>
             </motion.div>
