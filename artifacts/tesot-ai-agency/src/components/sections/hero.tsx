@@ -1,7 +1,5 @@
 import React from "react"
 import { motion } from "framer-motion"
-import { Button } from "@/components/ui/button"
-import { ArrowRight, MessageSquare } from "lucide-react"
 
 export function Hero() {
   return (
@@ -44,30 +42,6 @@ export function Hero() {
           Un centro de comando impecable para empresas ambiciosas que exigen velocidad y precisión.
         </motion.p>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.3, ease: "easeOut" }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-4"
-        >
-          <Button 
-            size="lg" 
-            className="w-full sm:w-auto gap-2 font-medium text-base h-12"
-            onClick={() => document.querySelector("#servicios")?.scrollIntoView({ behavior: "smooth" })}
-          >
-            Descubre cómo podemos ayudarte
-            <ArrowRight className="w-4 h-4" />
-          </Button>
-          <Button 
-            variant="outline" 
-            size="lg" 
-            className="w-full sm:w-auto gap-2 font-medium text-base h-12 border-muted-foreground/30 hover:bg-white/5"
-            onClick={() => document.querySelector("#chatbot")?.scrollIntoView({ behavior: "smooth" })}
-          >
-            <MessageSquare className="w-4 h-4" />
-            Habla con nuestro agente IA
-          </Button>
-        </motion.div>
       </div>
 
       {/* Decorative outcomes strip */}

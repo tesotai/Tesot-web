@@ -199,18 +199,6 @@ export function Navbar() {
                 </button>
               )
             )}
-            <div className="pt-2 mt-1 border-t border-border/50">
-              <Button
-                variant="glow"
-                className="w-full"
-                onClick={() => {
-                  setMenuOpen(false)
-                  scrollToSection("#contacto")
-                }}
-              >
-                Contacto
-              </Button>
-            </div>
           </div>
         </div>
       )}
