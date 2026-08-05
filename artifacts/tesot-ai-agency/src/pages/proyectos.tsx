@@ -5,27 +5,12 @@ import {
   ArrowRight,
   Bot,
   FolderOpen,
-  LockKeyhole,
+  Mail,
   Sparkles,
 } from "lucide-react"
 import { Navbar } from "@/components/layout/navbar"
 import { Footer } from "@/pages/home"
 import { Button } from "@/components/ui/button"
-
-const projectTypes = [
-  {
-    title: "Atención automática",
-    description: "Asistentes que responden dudas y ayudan a tus clientes en cualquier momento.",
-  },
-  {
-    title: "Reservas y organización",
-    description: "Sistemas que coordinan citas, pedidos y horarios sin cruces ni olvidos.",
-  },
-  {
-    title: "Procesos más sencillos",
-    description: "Herramientas a medida para quitar trabajo repetitivo de tu día a día.",
-  },
-]
 
 export default function Proyectos() {
   return (
@@ -67,41 +52,13 @@ export default function Proyectos() {
             <div className="mb-10 flex items-end justify-between gap-6">
               <div>
                 <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-primary">
-                  En construcción
+                   Proyectos destacados
                 </p>
                 <h2 className="text-2xl md:text-3xl font-bold text-white">
                   Lo que podemos crear contigo
                 </h2>
               </div>
               <FolderOpen className="hidden h-8 w-8 text-primary/70 sm:block" />
-            </div>
-
-            <div className="grid gap-5 md:grid-cols-3">
-              {projectTypes.map((project, index) => (
-                <motion.article
-                  key={project.title}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.45, delay: index * 0.1 }}
-                  className="group rounded-2xl border border-white/[0.08] bg-card/40 p-7 transition-all duration-300 hover:border-primary/30 hover:bg-card/70"
-                >
-                  <div className="mb-8 flex items-center justify-between">
-                    <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-white/10 bg-background text-primary">
-                      <LockKeyhole className="h-5 w-5" />
-                    </div>
-                    <span className="font-mono text-sm text-muted-foreground/50">
-                      0{index + 1}
-                    </span>
-                  </div>
-                  <h3 className="mb-3 text-xl font-bold text-white">
-                    {project.title}
-                  </h3>
-                  <p className="text-sm leading-relaxed text-muted-foreground">
-                    {project.description}
-                  </p>
-                </motion.article>
-              ))}
             </div>
 
             <Link href="/proyectos/chatbot" className="group mt-6 block">
@@ -144,6 +101,47 @@ export default function Proyectos() {
                 </div>
               </motion.article>
             </Link>
+
+             <Link href="/#contacto" className="group mt-6 block">
+               <motion.article
+                 initial={{ opacity: 0, y: 20 }}
+                 whileInView={{ opacity: 1, y: 0 }}
+                 viewport={{ once: true }}
+                 transition={{ duration: 0.45 }}
+                 className="relative overflow-hidden rounded-2xl border border-secondary/30 bg-gradient-to-br from-secondary/10 via-card/50 to-primary/10 p-7 transition-all duration-300 hover:border-secondary/60 hover:shadow-[0_0_45px_-15px_hsl(var(--secondary)/0.5)] md:p-8"
+               >
+                 <div className="absolute -right-16 -top-16 h-48 w-48 rounded-full bg-secondary/20 blur-[70px] transition-opacity group-hover:opacity-100" />
+                 <div className="relative z-10 flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+                   <div className="flex items-start gap-5">
+                     <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl border border-secondary/30 bg-background text-secondary">
+                       <Mail className="h-7 w-7" />
+                     </div>
+                     <div>
+                       <div className="mb-2 flex flex-wrap items-center gap-2">
+                         <span className="rounded-full border border-secondary/30 bg-secondary/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-secondary">
+                           Automatización con Gmail
+                         </span>
+                         <span className="text-xs text-muted-foreground">
+                           Formulario con respuesta automática
+                         </span>
+                       </div>
+                       <h3 className="mb-2 text-2xl font-bold text-white">
+                         Envía un mensaje y recibe una respuesta
+                       </h3>
+                       <p className="max-w-2xl text-sm leading-relaxed text-muted-foreground">
+                         Prueba el formulario de TESOT: envía tu consulta y
+                         descubre cómo una automatización puede procesarla y
+                         responderla de forma más rápida.
+                       </p>
+                     </div>
+                   </div>
+                   <div className="flex shrink-0 items-center gap-2 text-sm font-medium text-secondary transition-transform group-hover:translate-x-1">
+                     Probar formulario
+                     <ArrowRight className="h-4 w-4" />
+                   </div>
+                 </div>
+               </motion.article>
+             </Link>
 
             <div className="mt-12 rounded-2xl border border-primary/20 bg-gradient-to-br from-primary/10 via-transparent to-secondary/10 p-8 text-center md:p-10">
               <h2 className="mb-3 text-2xl font-bold text-white">
