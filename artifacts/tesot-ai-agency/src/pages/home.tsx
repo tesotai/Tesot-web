@@ -15,11 +15,11 @@ export function Footer() {
     <footer className="py-12 bg-background border-t border-border">
       <div className="container mx-auto px-6 flex flex-col md:flex-row items-center justify-between">
         <div className="flex items-center gap-2 mb-4 md:mb-0">
-          <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-white/95 p-1.5 shadow-[0_0_18px_-8px_rgba(255,255,255,0.7)] ring-1 ring-white/30">
+          <span className="flex h-9 w-9 items-center justify-center overflow-hidden rounded-lg bg-white/95 p-0.5 shadow-[0_0_18px_-8px_rgba(255,255,255,0.7)] ring-1 ring-white/30">
             <img
               src={agencyLogo}
               alt="Logo de TESOT AI Agency"
-              className="h-full w-full object-contain"
+              className="h-full w-full scale-[1.18] object-contain"
             />
           </span>
           <span className="text-xl font-bold text-white tracking-tighter">
