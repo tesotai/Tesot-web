@@ -1,7 +1,13 @@
 import React from "react"
 import { Link } from "wouter"
 import { motion } from "framer-motion"
-import { ArrowRight, FolderOpen, LockKeyhole, Sparkles } from "lucide-react"
+import {
+  ArrowRight,
+  Bot,
+  FolderOpen,
+  LockKeyhole,
+  Sparkles,
+} from "lucide-react"
 import { Navbar } from "@/components/layout/navbar"
 import { Footer } from "@/pages/home"
 import { Button } from "@/components/ui/button"
@@ -97,6 +103,47 @@ export default function Proyectos() {
                 </motion.article>
               ))}
             </div>
+
+            <Link href="/proyectos/chatbot" className="group mt-6 block">
+              <motion.article
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.45 }}
+                className="relative overflow-hidden rounded-2xl border border-primary/30 bg-gradient-to-br from-primary/10 via-card/50 to-secondary/10 p-7 transition-all duration-300 hover:border-primary/60 hover:shadow-[0_0_45px_-15px_hsl(var(--primary)/0.5)] md:p-8"
+              >
+                <div className="absolute -right-16 -top-16 h-48 w-48 rounded-full bg-primary/20 blur-[70px] transition-opacity group-hover:opacity-100" />
+                <div className="relative z-10 flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+                  <div className="flex items-start gap-5">
+                    <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl border border-primary/30 bg-background text-primary">
+                      <Bot className="h-7 w-7" />
+                    </div>
+                    <div>
+                      <div className="mb-2 flex flex-wrap items-center gap-2">
+                        <span className="rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-primary">
+                          Demo interactiva
+                        </span>
+                        <span className="text-xs text-muted-foreground">
+                          Chatbot de atención inteligente
+                        </span>
+                      </div>
+                      <h3 className="mb-2 text-2xl font-bold text-white">
+                        Prueba un chatbot creado por TESOT
+                      </h3>
+                      <p className="max-w-2xl text-sm leading-relaxed text-muted-foreground">
+                        Haz clic, conversa con él y descubre cómo podemos crear
+                        un asistente parecido para responder a tus clientes,
+                        captar oportunidades y ayudarte a trabajar mejor.
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex shrink-0 items-center gap-2 text-sm font-medium text-primary transition-transform group-hover:translate-x-1">
+                    Ver y probar chatbot
+                    <ArrowRight className="h-4 w-4" />
+                  </div>
+                </div>
+              </motion.article>
+            </Link>
 
             <div className="mt-12 rounded-2xl border border-primary/20 bg-gradient-to-br from-primary/10 via-transparent to-secondary/10 p-8 text-center md:p-10">
               <h2 className="mb-3 text-2xl font-bold text-white">

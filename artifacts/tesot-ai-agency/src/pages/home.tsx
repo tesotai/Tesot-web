@@ -84,7 +84,7 @@ function QuickAccess() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 max-w-6xl mx-auto items-stretch">
           {cards.map((card, i) => {
             const isPrimary = card.accent === "primary"
             return (
@@ -98,7 +98,7 @@ function QuickAccess() {
                 {card.type === "combined" ? (
                   <a href="#servicios" className="group block h-full">
                     <div
-                      className={`relative h-full rounded-2xl border border-white/[0.08] bg-card/40 p-8 overflow-hidden transition-all duration-300 hover:bg-card/70 ${
+                      className={`relative h-full min-h-[360px] rounded-2xl border border-white/[0.08] bg-card/40 p-8 overflow-hidden transition-all duration-300 hover:bg-card/70 ${
                         isPrimary
                           ? "hover:border-primary/30 hover:shadow-[0_0_40px_-15px_hsl(var(--primary)/0.25)]"
                           : "hover:border-secondary/30 hover:shadow-[0_0_40px_-15px_hsl(var(--secondary)/0.25)]"
@@ -152,7 +152,7 @@ function QuickAccess() {
                 ) : (
                   <Link href={card.href} className="group block h-full">
                   <div
-                    className={`relative h-full rounded-2xl border border-white/[0.08] bg-card/40 p-8 overflow-hidden transition-all duration-300 hover:bg-card/70 ${
+                    className={`relative h-full min-h-[360px] rounded-2xl border border-white/[0.08] bg-card/40 p-8 overflow-hidden transition-all duration-300 hover:bg-card/70 ${
                       isPrimary
                         ? "hover:border-primary/30 hover:shadow-[0_0_40px_-15px_hsl(var(--primary)/0.25)]"
                         : "hover:border-secondary/30 hover:shadow-[0_0_40px_-15px_hsl(var(--secondary)/0.25)]"
