@@ -14,7 +14,7 @@ const INITIAL_MESSAGES: Message[] = [
   {
     id: "1",
     role: "bot",
-    content: "Hola. Soy el agente experto de TESOT. ¿En qué proceso de tu empresa estás perdiendo más tiempo actualmente?"
+    content: "Hola. Soy el asistente de TESOT. Puedes preguntarme cualquier cosa sobre nuestros servicios, proyectos, automatizaciones o sobre cómo podemos ayudarte."
   }
 ]
 
