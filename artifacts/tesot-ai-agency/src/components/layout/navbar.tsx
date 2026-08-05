@@ -57,11 +57,13 @@ export function Navbar() {
           aria-label="TESOT AI Agency - Inicio"
           className="flex items-center gap-2.5"
         >
-          <img
-            src={agencyLogo}
-            alt="Logo de TESOT AI Agency"
-            className="h-10 w-10 object-contain"
-          />
+          <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-white/95 p-1.5 shadow-[0_0_22px_-8px_rgba(255,255,255,0.8)] ring-1 ring-white/40">
+            <img
+              src={agencyLogo}
+              alt="Logo de TESOT AI Agency"
+              className="h-full w-full object-contain"
+            />
+          </span>
           <span className="text-2xl font-bold tracking-tighter text-white">
             TESOT
             <span className="ml-1.5 inline-block h-2 w-2 rounded-full bg-primary align-middle glow-primary" />
