@@ -18,9 +18,6 @@ import {
   Sparkles,
   ArrowRight,
   CheckCircle2,
-  Store,
-  Stethoscope,
-  BriefcaseBusiness,
 } from "lucide-react"
 
 interface Service {
@@ -204,22 +201,6 @@ export default function Servicios() {
 
         <section className="pb-24 md:pb-32">
           <div className="container mx-auto px-6 max-w-4xl">
-            <div className="grid grid-cols-3 gap-3 md:gap-5 mb-12 max-w-2xl mx-auto">
-              {[
-                { icon: <Store className="w-4 h-4" />, label: "Comercios" },
-                { icon: <Stethoscope className="w-4 h-4" />, label: "Servicios" },
-                { icon: <BriefcaseBusiness className="w-4 h-4" />, label: "Empresas" },
-              ].map((sector) => (
-                <div
-                  key={sector.label}
-                  className="flex flex-col sm:flex-row items-center justify-center gap-2 rounded-xl border border-white/[0.08] bg-card/30 px-3 py-3 text-center text-xs md:text-sm text-muted-foreground"
-                >
-                  <span className="text-primary">{sector.icon}</span>
-                  {sector.label}
-                </div>
-              ))}
-            </div>
-
             <motion.div
               variants={stagger}
               initial="hidden"
