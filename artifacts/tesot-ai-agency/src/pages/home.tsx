@@ -108,7 +108,7 @@ function QuickAccess() {
                 {card.type === "combined" ? (
                   <a href="#servicios" className="group block h-full">
                     <div
-                      className={`relative h-full min-h-[360px] rounded-2xl border border-white/[0.08] bg-card/40 p-8 overflow-hidden transition-all duration-300 hover:bg-card/70 ${
+                        className={`relative h-full min-h-[260px] rounded-2xl border border-white/[0.08] bg-card/40 p-5 md:min-h-[360px] md:p-8 overflow-hidden transition-all duration-300 hover:bg-card/70 ${
                         isPrimary
                           ? "hover:border-primary/30 hover:shadow-[0_0_40px_-15px_hsl(var(--primary)/0.25)]"
                           : "hover:border-secondary/30 hover:shadow-[0_0_40px_-15px_hsl(var(--secondary)/0.25)]"
@@ -117,7 +117,7 @@ function QuickAccess() {
                       <div
                         className={`absolute -top-12 -right-12 w-40 h-40 rounded-full blur-[60px] pointer-events-none transition-opacity duration-500 opacity-0 group-hover:opacity-100 ${isPrimary ? "bg-primary/20" : "bg-secondary/20"}`}
                       />
-                      <div className="relative z-10 flex flex-col h-full gap-5">
+                      <div className="relative z-10 flex flex-col h-full gap-3 md:gap-5">
                         <div
                           className={`w-12 h-12 rounded-xl border border-white/10 bg-background flex items-center justify-center transition-colors duration-300 ${
                             isPrimary
@@ -162,7 +162,7 @@ function QuickAccess() {
                 ) : (
                   <Link href={card.href} className="group block h-full">
                   <div
-                    className={`relative h-full min-h-[360px] rounded-2xl border border-white/[0.08] bg-card/40 p-8 overflow-hidden transition-all duration-300 hover:bg-card/70 ${
+                    className={`relative h-full min-h-[260px] rounded-2xl border border-white/[0.08] bg-card/40 p-5 md:min-h-[360px] md:p-8 overflow-hidden transition-all duration-300 hover:bg-card/70 ${
                       isPrimary
                         ? "hover:border-primary/30 hover:shadow-[0_0_40px_-15px_hsl(var(--primary)/0.25)]"
                         : "hover:border-secondary/30 hover:shadow-[0_0_40px_-15px_hsl(var(--secondary)/0.25)]"
@@ -173,7 +173,7 @@ function QuickAccess() {
                       className={`absolute -top-12 -right-12 w-40 h-40 rounded-full blur-[60px] pointer-events-none transition-opacity duration-500 opacity-0 group-hover:opacity-100 ${isPrimary ? "bg-primary/20" : "bg-secondary/20"}`}
                     />
 
-                    <div className="relative z-10 flex flex-col h-full gap-5">
+                    <div className="relative z-10 flex flex-col h-full gap-3 md:gap-5">
                       <div
                         className={`w-12 h-12 rounded-xl border border-white/10 bg-background flex items-center justify-center transition-colors duration-300 ${
                           isPrimary

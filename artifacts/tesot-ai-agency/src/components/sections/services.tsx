@@ -81,19 +81,19 @@ const item = {
 
 export function Services() {
   return (
-    <section id="servicios" className="py-28 md:py-32 relative overflow-hidden">
+    <section id="servicios" className="py-16 md:py-32 relative overflow-hidden">
       <div className="absolute top-1/3 -left-32 w-72 h-72 rounded-full bg-primary/10 blur-[100px] pointer-events-none" />
       <div className="absolute bottom-0 -right-24 w-72 h-72 rounded-full bg-secondary/10 blur-[100px] pointer-events-none" />
 
       <div className="container mx-auto px-6 relative z-10">
-        <div className="mb-14 max-w-3xl">
-          <div className="flex items-center gap-3 mb-5">
+        <div className="mb-9 md:mb-14 max-w-3xl">
+          <div className="flex items-center gap-3 mb-3 md:mb-5">
             <span className="w-8 h-px bg-primary" />
             <span className="text-xs font-semibold tracking-[0.2em] uppercase text-primary">
               Lo que hacemos
             </span>
           </div>
-          <h2 className="text-3xl md:text-5xl font-bold text-white leading-tight mb-5">
+          <h2 className="text-3xl md:text-5xl font-bold text-white leading-tight mb-4 md:mb-5">
             Tecnología que se entiende.
             <br />
             <span className="text-gradient">Resultados que se notan.</span>
@@ -110,7 +110,7 @@ export function Services() {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, margin: "-80px" }}
-          className="grid grid-cols-1 md:grid-cols-2 gap-5"
+          className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-5"
         >
           {capabilities.map((capability) => {
             const isPrimary = capability.accent === "primary"
@@ -118,7 +118,7 @@ export function Services() {
               <motion.article
                 key={capability.number}
                 variants={item}
-                className={`group relative overflow-hidden rounded-2xl border bg-card/40 p-7 md:p-8 transition-all duration-300 ${
+                className={`group relative overflow-hidden rounded-2xl border bg-card/40 p-5 md:p-8 transition-all duration-300 ${
                   isPrimary
                     ? "border-primary/10 hover:border-primary/40 hover:shadow-[0_0_45px_-18px_hsl(var(--primary)/0.45)]"
                     : "border-secondary/10 hover:border-secondary/40 hover:shadow-[0_0_45px_-18px_hsl(var(--secondary)/0.45)]"
@@ -131,7 +131,7 @@ export function Services() {
                 />
 
                 <div className="relative z-10">
-                  <div className="flex items-start justify-between mb-8">
+                  <div className="flex items-start justify-between mb-5 md:mb-8">
                     <div
                       className={`w-12 h-12 rounded-xl border bg-background flex items-center justify-center ${
                         isPrimary
