@@ -97,21 +97,21 @@ export function Chatbot() {
   }
 
   return (
-    <section id="chatbot" className="py-32 relative overflow-hidden">
+    <section id="chatbot" className="py-20 md:py-32 relative overflow-hidden">
       <div className="absolute right-0 top-1/2 w-[500px] h-[500px] bg-secondary/10 rounded-full blur-[120px] pointer-events-none" />
       
       <div className="container mx-auto px-6">
-        <div className="flex flex-col lg:flex-row gap-12 items-center">
+        <div className="flex flex-col lg:flex-row gap-8 md:gap-12 items-center">
           
           <div className="lg:w-1/2 max-w-xl">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-secondary/30 bg-secondary/10 text-secondary text-sm font-medium mb-6">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-secondary/30 bg-secondary/10 text-secondary text-sm font-medium mb-4 md:mb-6">
               <Sparkles className="w-4 h-4" />
               Demo en Vivo
             </div>
-            <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
+            <h2 className="text-3xl md:text-5xl font-bold text-white mb-4 md:mb-6">
               Experimenta el nivel de <span className="text-gradient">nuestros agentes.</span>
             </h2>
-            <p className="text-lg text-muted-foreground mb-8">
+            <p className="text-lg text-muted-foreground mb-6 md:mb-8">
               No es un chatbot de reglas. Es un agente conversacional avanzado diseñado por TESOT, capaz de entender contexto complejo, razonar sobre tu modelo de negocio y proponer arquitecturas de automatización en tiempo real.
             </p>
             <div className="space-y-4">
@@ -131,7 +131,7 @@ export function Chatbot() {
           </div>
 
           <div className="lg:w-1/2 w-full">
-            <div className="bg-card rounded-2xl border border-border/50 shadow-2xl flex flex-col h-[500px] relative z-10 overflow-hidden border-glow">
+            <div className="bg-card rounded-2xl border border-border/50 shadow-2xl flex flex-col h-[440px] md:h-[500px] relative z-10 overflow-hidden border-glow">
               {/* Chat Header */}
               <div className="p-4 border-b border-border/50 bg-background/50 flex items-center gap-3 backdrop-blur-sm">
                 <div className="relative">

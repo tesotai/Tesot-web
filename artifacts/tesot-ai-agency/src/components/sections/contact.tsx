@@ -57,17 +57,17 @@ export function Contact() {
   }
 
   return (
-    <section id="contacto" className="py-32 relative bg-card/20 border-t border-border/50">
+    <section id="contacto" className="py-20 md:py-32 relative bg-card/20 border-t border-border/50">
       <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-10 pointer-events-none mix-blend-overlay"></div>
       
       <div className="container mx-auto px-6 relative z-10">
-        <div className="max-w-4xl mx-auto flex flex-col md:flex-row gap-16">
+        <div className="max-w-4xl mx-auto flex flex-col md:flex-row gap-10 md:gap-16">
           
           <div className="md:w-1/2">
-            <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
+            <h2 className="text-3xl md:text-5xl font-bold text-white mb-4 md:mb-6">
               Pregúntanos lo que quieras, al instante.
             </h2>
-            <p className="text-lg text-muted-foreground mb-8">
+            <p className="text-lg text-muted-foreground mb-6 md:mb-8">
               Escribe cualquier duda sobre nuestros servicios. Nuestro sistema inteligente te responderá de inmediato. Si necesitas algo más complejo o personalizado, un especialista se pondrá en contacto contigo muy pronto.
             </p>
             
@@ -103,7 +103,7 @@ export function Contact() {
           </div>
 
           <div className="md:w-1/2">
-            <div className="bg-background rounded-2xl border border-border p-8 relative overflow-hidden">
+            <div className="bg-background rounded-2xl border border-border p-6 md:p-8 relative overflow-hidden">
               <div className="absolute top-0 right-0 w-32 h-32 bg-primary/10 rounded-full blur-[50px] pointer-events-none" />
               
               <AnimatePresence mode="wait">
