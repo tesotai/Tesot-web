@@ -49,7 +49,7 @@ export function Chatbot() {
 
     try {
       const response = await fetch(
-        "https://tesot.app.n8n.cloud/webhook/1362a32b-6bfe-4723-85eb-00c1fe50dd70",
+        "https://n8n.tesot.site/webhook/1362a32b-6bfe-4723-85eb-00c1fe50dd70",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
