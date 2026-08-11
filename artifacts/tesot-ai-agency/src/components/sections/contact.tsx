@@ -29,7 +29,7 @@ export function Contact() {
 
     try {
       const response = await fetch(
-        https://n8n.tesot.site/webhook/tesot-contacto,
+        "https://n8n.tesot.site/webhook/tesot-contacto",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
